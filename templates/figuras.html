@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block contenido %}
+
+{% import "_macros.html" as macros %}
+<h1>Figuras Geometricas</h1>
+
+<form action="/figuras" method="post">
+
+    
+    <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="figura" id="radioRectangulo" value="rectangulo" required>
+            <label class="form-check-label" for="radioRectangulo">Rectángulo</label>
+        </div>
+        
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="figura" id="radioTriangulo" value="triangulo">
+            <label class="form-check-label" for="radioTriangulo">Triángulo </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="figura" id="radioCirculo" value="circulo">
+            <label class="form-check-label" for="radioCirculo">Círculo</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="figura" id="radioPentagono" value="pentagono">
+            <label class="form-check-label" for="radioPentagono">Pentágono</label>
+        </div>
+    </div>
+
+    
+    
+    <h2>Ingresa los valores</h2>
+    {{ macros.campo1('base', 'Ingrese el valor de la base o lado', 'number') }} 
+    
+    {{ macros.campo1('altura', 'Ingrese el valor de la altura', 'number') }}
+    
+    {{ macros.campo1('radio', 'Ingrese el valor del radio', 'number') }}
+
+    {{ macros.campo1('apotema', 'Ingrese el valor del apotema', 'number') }}
+
+   
+   
+
+    <button type="submit" class="btn btn-primary">Calcular Área</button>
+
+</form>
+
+
+<div >
+    
+    {% if resultado_area %}
+        <p >{{ resultado_area }}</p>
+    
+    {% endif %}
+</div>
+
+{% endblock %}
